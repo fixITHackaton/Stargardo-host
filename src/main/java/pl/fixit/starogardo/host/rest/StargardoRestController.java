@@ -17,8 +17,8 @@ import java.util.List;
 @RestController
 class StargardoRestController {
 
-    private CompanyServiceStrategy companyServiceStrategy;
-    private OrderService orderService;
+    private final CompanyServiceStrategy companyServiceStrategy;
+    private final OrderService orderService;
 
     public StargardoRestController(@Autowired CompanyServiceStrategy strategy,
                                    @Autowired OrderService orderService) {
