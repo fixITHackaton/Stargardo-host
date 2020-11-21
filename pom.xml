@@ -46,12 +46,16 @@
 		<dependency>
 			<groupId>pl.fixit.stargardo.common</groupId>
 			<artifactId>Stargardo-common</artifactId>
+<<<<<<< HEAD
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.4.200</version>
+=======
+			<version>0.0.2-SNAPSHOT</version>
+>>>>>>> 6c3c48f0056a9eca6f72acc0aa98edb169df4457
 		</dependency>
 	</dependencies>
 

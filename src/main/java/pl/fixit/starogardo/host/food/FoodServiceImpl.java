@@ -62,7 +62,6 @@ class FoodServiceImpl extends CompanyServiceImpl implements FoodService {
                 dto.setPhoto(loadImage());
             } catch(IOException e) {
             }
-            dto.setAmount(Long.valueOf(i));
             result.add(dto);
         }
         return result;
