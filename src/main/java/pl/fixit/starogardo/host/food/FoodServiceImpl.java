@@ -1,5 +1,6 @@
 package pl.fixit.starogardo.host.food;
 
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.stereotype.Service;
 import pl.fixit.stargardo.common.company.dto.CompanyDto;
 import pl.fixit.stargardo.common.company.dto.CompanySubcategoryDto;
@@ -67,8 +68,9 @@ class FoodServiceImpl extends CompanyServiceImpl implements FoodService {
         return result;
     }
 
-    private byte[] loadImage() throws IOException {
-        return this.getClass().getClassLoader().getResourceAsStream("zaba.png")
-                .readAllBytes();
+    private String loadImage() throws IOException {
+        return Base64
+                .encodeBase64String(this.getClass().getClassLoader().getResourceAsStream("zaba.png")
+                .readAllBytes());
     }
 }
