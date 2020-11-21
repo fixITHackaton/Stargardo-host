@@ -21,10 +21,7 @@ public class BusinessCategory {
     @Column
     private long id;
 
-    private Enum food;
+    private String name;
 
-    private Enum announcement;
-
-    private Enum retail;
 
 }
