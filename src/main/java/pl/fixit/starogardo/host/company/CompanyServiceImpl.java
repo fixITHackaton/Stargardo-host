@@ -45,8 +45,6 @@ public abstract class CompanyServiceImpl implements CompanyService {
     }
 
     public CompanyCategory getCompanyCategory(Long companyId) {
-        TypedQuery query = em.createQuery("select a from CompanyCategory a where a.id = ?1", CompanyCategory.class);
-        query.setParameter(1, companyId);
-        return (CompanyCategory) query.getSingleResult();
+        return CompanyCategory.FOOD;
     }
 }
