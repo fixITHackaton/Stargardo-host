@@ -35,4 +35,6 @@ public class Product {
     @JoinColumn(name = "subCategories_id", referencedColumnName = "id")
     private List<SubCategories> subCategories;
 
+    private Long companyId;
+
 }
