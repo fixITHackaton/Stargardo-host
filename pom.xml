@@ -47,6 +47,7 @@
 			<groupId>pl.fixit.stargardo.common</groupId>
 			<artifactId>Stargardo-common</artifactId>
 <<<<<<< HEAD
+<<<<<<< HEAD
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -56,6 +57,14 @@
 =======
 			<version>0.0.2-SNAPSHOT</version>
 >>>>>>> 6c3c48f0056a9eca6f72acc0aa98edb169df4457
+=======
+			<version>0.0.3-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.9</version>
+>>>>>>> 64798eb88a0a305d2198d51ea08ab80aeeb6ec95
 		</dependency>
 	</dependencies>
 

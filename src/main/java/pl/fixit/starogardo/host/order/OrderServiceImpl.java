@@ -1,5 +1,6 @@
 package pl.fixit.starogardo.host.order;
 
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.stereotype.Service;
 import pl.fixit.stargardo.common.order.dto.OrderDto;
 import pl.fixit.stargardo.common.product.dto.ProductDto;
@@ -52,9 +53,10 @@ public class OrderServiceImpl implements OrderService {
         return result;
     }
 
-    private byte[] loadImage() throws IOException {
-        return this.getClass().getClassLoader().getResourceAsStream("zaba.png")
-                .readAllBytes();
+    private String loadImage() throws IOException {
+        return Base64
+                .encodeBase64String(this.getClass().getClassLoader().getResourceAsStream("zaba.png")
+                        .readAllBytes());
     }
 
 }
