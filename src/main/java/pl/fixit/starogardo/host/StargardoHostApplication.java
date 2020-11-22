@@ -27,8 +27,9 @@ public class StargardoHostApplication {
 					.readAllBytes();
 		//"some data".getBytes();
 		return args -> {
-			CompanyCategory companyCategory = companyCategoryRepository.save(new CompanyCategory(0l, "Jedzenie"));
-			CompanyCategory companyCategory1 = companyCategoryRepository.save(new CompanyCategory(1l, "Zakupy"));
+
+			CompanyCategory companyCategory = companyCategoryRepository.save(new CompanyCategory(1, "Jedzenie"));
+			CompanyCategory companyCategory1 = companyCategoryRepository.save(new CompanyCategory(2, "Zakupy"));
 			SubCategories subCategories = subCategoriesRepository.save(new SubCategories(0l,"sushi", companyCategory));
 			SubCategories subCategories1 = subCategoriesRepository.save(new SubCategories(1l,"pizza", companyCategory));
 			SubCategories subCategories2 = subCategoriesRepository.save(new SubCategories(2l,"burger", companyCategory));
@@ -42,12 +43,12 @@ public class StargardoHostApplication {
 			SubCategories subCategories10 = subCategoriesRepository.save(new SubCategories(10l,"sportowy", companyCategory1));
 			SubCategories subCategories11= subCategoriesRepository.save(new SubCategories(11l,"ksiazki", companyCategory1));
 			SubCategories subCategories12 = subCategoriesRepository.save(new SubCategories(12l,"dekoracje", companyCategory1));
-			companyRepository.save(new Company(1l,"nazwa firmy1","332979093", companyCategory, Collections.singletonList(new SubCategories(1,"pizza",companyCategory)), "losowy opis1", bytes, "losowa ulica1","8296711906841661984","6250680088", "email@email1"));
-			companyRepository.save(new Company(2l,"nazwa firmy2","132476083",companyCategory, Collections.singletonList(new SubCategories(2,"hydraulik",companyCategory)), "losowy opis2", bytes, "losowa ulica2","123456431907862","62213120088", "email@email2"));
-			companyRepository.save(new Company(3l,"nazwa firmy3","222276083",companyCategory, Collections.singletonList(new SubCategories(3,"sushi",companyCategory)), "losowy opis3", bytes, "losowa ulica3","444444444444","54523432421312", "email@email3"));
-			productRepository.save(new Product(1l,"nazwa1",new BigDecimal(1),"opis1", bytes, Collections.singletonList(new SubCategories(4l,"hamburgery",companyCategory)) ));
-			productRepository.save(new Product(2l,"nazwa2",new BigDecimal(2),"opis2", bytes, Collections.singletonList(new SubCategories(5l,"pizza",companyCategory)) ));
-			productRepository.save(new Product(3l,"nazwa3",new BigDecimal(3),"opis3", bytes, Collections.singletonList(new SubCategories(6l,"pizza",companyCategory)) ));
+			Company company = companyRepository.save(new Company(1l,"nazwa firmy1","332979093", companyCategory, Collections.singletonList(subCategories1), "losowy opis1", bytes, "losowa ulica1","8296711906841661984","6250680088", "email@email1"));
+			Company company1 =companyRepository.save(new Company(2l,"nazwa firmy2","132476083",companyCategory, Collections.singletonList(subCategories2), "losowy opis2", bytes, "losowa ulica2","123456431907862","62213120088", "email@email2"));
+			Company company2 =companyRepository.save(new Company(3l,"nazwa firmy3","222276083",companyCategory, Collections.singletonList(subCategories3), "losowy opis3", bytes, "losowa ulica3","444444444444","54523432421312", "email@email3"));
+			productRepository.save(new Product(1l,"nazwa1",new BigDecimal(1),"opis1", bytes, Collections.singletonList(subCategories4) ));
+			productRepository.save(new Product(2l,"nazwa2",new BigDecimal(2),"opis2", bytes, Collections.singletonList(subCategories5) ));
+			productRepository.save(new Product(3l,"nazwa3",new BigDecimal(3),"opis3", bytes, Collections.singletonList(subCategories6) ));
 			subCategoriesRepository.save(subCategories);
 			subCategoriesRepository.save(subCategories1);
 			subCategoriesRepository.save(subCategories2);

@@ -32,6 +32,8 @@ public class Orders {
 
     private Date deliveryTime;
 
+    private long restaurantId;
+
     public Orders() {
     }
 

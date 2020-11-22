@@ -1,5 +1,6 @@
 package pl.fixit.starogardo.host.food;
 
+//import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.stereotype.Service;
 import pl.fixit.stargardo.common.company.dto.CompanyDto;
@@ -18,10 +19,10 @@ import java.util.List;
 @Service
 class FoodServiceImpl extends CompanyServiceImpl implements FoodService {
 
-    @Override
-    public List<CompanyDto> getCompanies(CompanySearchCriteriaDto searchCriteriaDto) {
-        return mockCompanyList();
-    }
+//    @Override
+//    public List<CompanyDto> getCompanies(CompanySearchCriteriaDto searchCriteriaDto) {
+//        return mockCompanyList();
+//    }
 
     @Override
     public List<ProductDto> findProducts(Long companyId) {
@@ -34,8 +35,8 @@ class FoodServiceImpl extends CompanyServiceImpl implements FoodService {
             CompanyDto dto = new CompanyDto();
             dto.setId(Long.valueOf(i));
             dto.setCompanyCategory(CompanyCategory.parse(i%3));
-            dto.setOpeningHour(LocalTime.NOON);
-            dto.setClosingHour(LocalTime.MIDNIGHT.minusHours(i%11));
+            dto.setOpeningHour(LocalTime.NOON.toString());
+            dto.setClosingHour(LocalTime.MIDNIGHT.minusHours(i%11).toString());
             dto.setName("Knajpa " + i);
             dto.setTelephone("+91" + i);
             dto.setCompanySubcategories(Arrays.asList(new CompanySubcategoryDto(1L, "indyjskie " + i),

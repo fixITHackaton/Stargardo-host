@@ -17,9 +17,23 @@ public abstract class CompanyServiceImpl implements CompanyService {
     private EntityManager em;
 
     public List<CompanyDto> getCompanies(CompanySearchCriteriaDto searchCriteriaDto) {
+        TypedQuery query = em.createQuery("select a from Company a where a.companyCategory.id=?1", Company.class);;
+        if (searchCriteriaDto.getCompanyCategory()!= null && searchCriteriaDto.getSubcategoryId() == null && searchCriteriaDto.getText() == null){
+            //TODO query = em.createQuery("select a from Company a where a.companyCategory=?1", Company.class);
+        }else if (searchCriteriaDto.getCompanyCategory()== null && searchCriteriaDto.getSubcategoryId() != null && searchCriteriaDto.getText() == null){
+            //TODO query = em.createQuery("select a from Company a where a.subcatogories = ?2", Company.class);
+        }else if (searchCriteriaDto.getCompanyCategory()!= null && searchCriteriaDto.getSubcategoryId() == null && searchCriteriaDto.getText() == null){
+            //TODO
+        }else if (searchCriteriaDto.getCompanyCategory()== null && searchCriteriaDto.getSubcategoryId() == null && searchCriteriaDto.getText() != null){
+            //TODO query = em.createQuery("select a from Company a where a.name=?4", Company.class);
+        }
 
-        TypedQuery query = em.createQuery("select a from Company a where a.companyCategory = ?1", Company.class);
-        query.setParameter(1, searchCriteriaDto);
+
+        query.setParameter(1, ((long) searchCriteriaDto.getCompanyCategory().ordinal()+1));
+        //TODO
+//        query.setParameter(2, searchCriteriaDto.getCompanyCategory());
+//        query.setParameter(3, searchCriteriaDto.getCompanyCategory());
+//        query.setParameter(4, searchCriteriaDto.getText());
 
         return query.getResultList();
     }
@@ -31,6 +45,8 @@ public abstract class CompanyServiceImpl implements CompanyService {
     }
 
     public CompanyCategory getCompanyCategory(Long companyId) {
-        return CompanyCategory.FOOD;
+        TypedQuery query = em.createQuery("select a from CompanyCategory a where a.id = ?1", CompanyCategory.class);
+        query.setParameter(1, companyId);
+        return (CompanyCategory) query.getSingleResult();
     }
 }
