@@ -31,7 +31,7 @@ public class Product {
     @Lob
     private byte[] productPicture;
 
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "subCategories_id", referencedColumnName = "id")
     private List<SubCategories> subCategories;
 

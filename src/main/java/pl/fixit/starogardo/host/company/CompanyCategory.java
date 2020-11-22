@@ -13,12 +13,11 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table (name = "BUSINESS_CATEGORY")
-public class BusinessCategory {
+@Table (name = "COMPANY_CATEGORY")
+public class CompanyCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private long id;
 
     private String name;

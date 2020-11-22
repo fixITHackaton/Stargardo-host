@@ -13,8 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "BUSINESS")
-public class Business {
+@Table(name = "COMPANY")
+public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,9 +27,9 @@ public class Business {
 
     @OneToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private BusinessCategory businessCategory;
+    private CompanyCategory companyCategory;
 
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn (name = "subCategories_id", referencedColumnName = "id")
     private List<SubCategories> subcatogories;
 

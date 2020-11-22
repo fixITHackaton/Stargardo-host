@@ -5,25 +5,29 @@ import pl.fixit.stargardo.common.company.dto.CompanySubcategoryDto;
 import pl.fixit.stargardo.common.company.enums.CompanyCategory;
 import pl.fixit.stargardo.common.company.restaurant.dto.CompanySearchCriteriaDto;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.Arrays;
 import java.util.List;
 
 public abstract class CompanyServiceImpl implements CompanyService {
 
+    @PersistenceContext
+    private EntityManager em;
+
     public List<CompanyDto> getCompanies(CompanySearchCriteriaDto searchCriteriaDto) {
-        return null;
+
+        TypedQuery query = em.createQuery("select a from Company a where a.companyCategory = ?1", Company.class);
+        query.setParameter(1, searchCriteriaDto);
+
+        return query.getResultList();
     }
 
     public List<CompanySubcategoryDto> findSubcategories(CompanyCategory companyCategory) {
-        // TODO - use repository
-        return Arrays.asList(new CompanySubcategoryDto(1L, "Indyjskie"),
-                new CompanySubcategoryDto(2L, "Włoskie"),
-                new CompanySubcategoryDto(3L, "Burgery"),
-                new CompanySubcategoryDto(4L, "Tajskie"),
-                new CompanySubcategoryDto(5L, "Chińskie"),
-                new CompanySubcategoryDto(6L, "Meksykańskie"),
-                new CompanySubcategoryDto(7L, "Polskie"),
-                new CompanySubcategoryDto(8L, "Sushi"));
+        TypedQuery query = em.createQuery("select a from SubCategories a where a.companyCategory = ?1", SubCategories.class);
+        query.setParameter(1, companyCategory);
+        return query.getResultList();
     }
 
     public CompanyCategory getCompanyCategory(Long companyId) {
