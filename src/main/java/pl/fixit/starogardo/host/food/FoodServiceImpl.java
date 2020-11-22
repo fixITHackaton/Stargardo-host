@@ -1,6 +1,7 @@
 package pl.fixit.starogardo.host.food;
 
 import org.apache.commons.codec.binary.Base64;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.fixit.stargardo.common.company.dto.CompanyDto;
 import pl.fixit.stargardo.common.company.dto.CompanySubcategoryDto;
@@ -8,15 +9,18 @@ import pl.fixit.stargardo.common.company.enums.CompanyCategory;
 import pl.fixit.stargardo.common.company.restaurant.dto.CompanySearchCriteriaDto;
 import pl.fixit.stargardo.common.product.dto.ProductDto;
 import pl.fixit.starogardo.host.company.CompanyServiceImpl;
+import pl.fixit.starogardo.host.product.ProductService;
 
 import java.io.IOException;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Service
 class FoodServiceImpl extends CompanyServiceImpl implements FoodService {
+
+    @Autowired
+    ProductService productService;
 
     @Override
     public List<CompanyDto> getCompanies(CompanySearchCriteriaDto searchCriteriaDto) {
@@ -25,7 +29,8 @@ class FoodServiceImpl extends CompanyServiceImpl implements FoodService {
 
     @Override
     public List<ProductDto> findProducts(Long companyId) {
-        return mockProductsList(companyId);
+        return productService.findByCompanyId(companyId);
+        //return mockProductsList(companyId);
     }
 
     private List<CompanyDto> mockCompanyList() {
