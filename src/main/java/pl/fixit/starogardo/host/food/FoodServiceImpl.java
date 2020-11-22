@@ -34,8 +34,8 @@ class FoodServiceImpl extends CompanyServiceImpl implements FoodService {
             CompanyDto dto = new CompanyDto();
             dto.setId(Long.valueOf(i));
             dto.setCompanyCategory(CompanyCategory.parse(i%3));
-            dto.setOpeningHour(LocalTime.NOON);
-            dto.setClosingHour(LocalTime.MIDNIGHT.minusHours(i%11));
+            dto.setOpeningHour("10:00");
+            dto.setClosingHour("22:00");
             dto.setName("Knajpa " + i);
             dto.setTelephone("+91" + i);
             dto.setCompanySubcategories(Arrays.asList(new CompanySubcategoryDto(1L, "indyjskie " + i),
