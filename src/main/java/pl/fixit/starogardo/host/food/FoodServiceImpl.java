@@ -25,7 +25,8 @@ class FoodServiceImpl extends CompanyServiceImpl implements FoodService {
 
     @Override
     public List<CompanyDto> getCompanies(CompanySearchCriteriaDto searchCriteriaDto) {
-        return mockCompanyList();
+        return getCompaniesFromDB(searchCriteriaDto);
+//        return mockCompanyList();
     }
 
     @Override

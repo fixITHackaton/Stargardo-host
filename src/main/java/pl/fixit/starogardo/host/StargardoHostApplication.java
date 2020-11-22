@@ -27,8 +27,8 @@ public class StargardoHostApplication {
 					.readAllBytes();
 		//"some data".getBytes();
 		return args -> {
-			CompanyCategory companyCategory = companyCategoryRepository.save(new CompanyCategory(0l, "Jedzenie"));
-			CompanyCategory companyCategory1 = companyCategoryRepository.save(new CompanyCategory(1l, "Zakupy"));
+			CompanyCategory companyCategory = companyCategoryRepository.save(new CompanyCategory(1l, "Jedzenie"));
+			CompanyCategory companyCategory1 = companyCategoryRepository.save(new CompanyCategory(2l, "Zakupy"));
 			SubCategories subCategories = subCategoriesRepository.save(new SubCategories(0l,"sushi", companyCategory));
 			SubCategories subCategories1 = subCategoriesRepository.save(new SubCategories(1l,"pizza", companyCategory));
 			SubCategories subCategories2 = subCategoriesRepository.save(new SubCategories(2l,"burger", companyCategory));
@@ -42,9 +42,9 @@ public class StargardoHostApplication {
 			SubCategories subCategories10 = subCategoriesRepository.save(new SubCategories(10l,"sportowy", companyCategory1));
 			SubCategories subCategories11= subCategoriesRepository.save(new SubCategories(11l,"ksiazki", companyCategory1));
 			SubCategories subCategories12 = subCategoriesRepository.save(new SubCategories(12l,"dekoracje", companyCategory1));
-			companyRepository.save(new Company(1l,"nazwa firmy1","332979093", companyCategory, Collections.singletonList(new SubCategories(1,"pizza",companyCategory)), "losowy opis1", parseImage("pizzeria1.jpg"), "losowa ulica1","8296711906841661984","6250680088", "email@email1"));
-			companyRepository.save(new Company(2l,"nazwa firmy2","132476083",companyCategory, Collections.singletonList(new SubCategories(2,"hydraulik",companyCategory)), "losowy opis2", parseImage("pizzeria1.jpg"), "losowa ulica2","123456431907862","62213120088", "email@email2"));
-			companyRepository.save(new Company(3l,"nazwa firmy3","222276083",companyCategory, Collections.singletonList(new SubCategories(3,"sushi",companyCategory)), "losowy opis3", parseImage("sushi1.jpg"), "losowa ulica3","444444444444","54523432421312", "email@email3"));
+			companyRepository.save(new Company(1l,"Pizzeria Paloma","332979093", companyCategory, Collections.singletonList(new SubCategories(1,"Pizza",companyCategory)), "losowy opis1", parseImage("PizzaPaloma.jpg"), "losowa ulica1","8296711906841661984","6250680088", "email@email1"));
+			companyRepository.save(new Company(2l,"MoaBurger","132476083",companyCategory, Collections.singletonList(new SubCategories(2,"Burgery",companyCategory)), "losowy opis2", parseImage("MoaBurger.jpg"), "losowa ulica2","123456431907862","62213120088", "email@email2"));
+			companyRepository.save(new Company(3l,"Sushi Hana","222276083",companyCategory, Collections.singletonList(new SubCategories(3,"Sushi",companyCategory)), "losowy opis3", parseImage("Sushi_Hana.jpg"), "losowa ulica3","444444444444","54523432421312", "email@email3"));
 			productRepository.save(new Product(1l,"Margherita",new BigDecimal(19),"opis1", parseImage("pizza1.jpg"), Collections.singletonList(new SubCategories(4l,"hamburgery",companyCategory)), 1L));
 			productRepository.save(new Product(2l,"Pepperoni",new BigDecimal(24),"opis2", parseImage("pizza2.jpg"), Collections.singletonList(new SubCategories(5l,"pizza",companyCategory)), 1L ));
 			productRepository.save(new Product(3l,"Capriciosa",new BigDecimal(22),"opis3", parseImage("pizza3.jpg"), Collections.singletonList(new SubCategories(6l,"pizza",companyCategory)), 1L ));

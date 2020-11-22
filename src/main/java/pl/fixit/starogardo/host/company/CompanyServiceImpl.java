@@ -16,7 +16,7 @@ public abstract class CompanyServiceImpl implements CompanyService {
     @PersistenceContext
     private EntityManager em;
 
-    public List<CompanyDto> getCompanies(CompanySearchCriteriaDto searchCriteriaDto) {
+    public List<CompanyDto> getCompaniesFromDB(CompanySearchCriteriaDto searchCriteriaDto) {
         TypedQuery query = em.createQuery("select a from Company a where a.companyCategory.id=?1", Company.class);;
         if (searchCriteriaDto.getCompanyCategory()!= null && searchCriteriaDto.getSubcategoryId() == null && searchCriteriaDto.getText() == null){
             //TODO query = em.createQuery("select a from Company a where a.companyCategory=?1", Company.class);
